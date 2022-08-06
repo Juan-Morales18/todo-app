@@ -1,7 +1,12 @@
+import { MainContainer } from "./containers/MainContainer";
 import "./styles/App.scss";
 
 function App() {
-  return <h1 className="title">Todo App</h1>;
+  return (
+    <div className="app-container">
+      <MainContainer />
+    </div>
+  );
 }
 
 export { App };

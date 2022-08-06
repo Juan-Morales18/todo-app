@@ -1,0 +1,36 @@
+@use "vars" as *;
+
+.header {
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .title {
+    font-size: 2rem;
+    padding: 0;
+    margin: 0;
+    line-height: 0;
+    color: white;
+    letter-spacing: 0.5rem;
+  }
+
+  .btn-switch-theme {
+    overflow: hidden;
+    width: 25px;
+    height: 25px;
+    background: none;
+    border: none;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+
+    &.btn-dark {
+      background-image: url(../assets/icons/icon-moon.svg);
+    }
+    &.btn-light {
+      background-image: url(../assets/icons/icon-sun.svg);
+    }
+  }
+}
