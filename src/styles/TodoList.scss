@@ -3,8 +3,12 @@
 .todo-list {
   background-color: $very-dark-desaturated-blue;
   color: white;
-  min-height: 35vh;
+  margin: 1rem 0;
   border-radius: $border-radius;
+
+  .todo-list-wrapper {
+    min-height: 25vh;
+  }
 
   .todo-list-footer {
     color: $dark-grayish-blue;
