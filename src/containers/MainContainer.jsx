@@ -40,10 +40,28 @@ function MainContainer() {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
 
+  const handleDeleteTodo = (todoId) => {
+    const newTodos = todos.filter((todo) => todo.id !== todoId);
+    setTodos(newTodos);
+  };
+
+  const handleChangeTodoStatus = (todoId) => {
+    const updatedTodos = todos.map((todo) => {
+      return todo.id === todoId
+        ? { ...todo, completed: !todo.completed }
+        : todo;
+    });
+    setTodos(updatedTodos);
+  };
+
   return (
     <main className="main-container">
       <Header theme={theme} toggleTheme={toggleTheme} />
-      <TodoList todos={todos} />
+      <TodoList
+        todos={todos}
+        handleChangeTodoStatus={handleChangeTodoStatus}
+        handleDeleteTodo={handleDeleteTodo}
+      />
     </main>
   );
 }

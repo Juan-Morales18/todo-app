@@ -19,6 +19,13 @@
       cursor: pointer;
       border-color: $check-background-hover;
     }
+
+    &.checked {
+      border: none;
+      background: url("../assets/icons/icon-check.svg"), $check-background;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
   }
 
   .description {

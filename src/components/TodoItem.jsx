@@ -1,13 +1,18 @@
 import "../styles/TodoItem.scss";
 
-function TodoItem({ todo }) {
-  const { description, checked } = todo;
+function TodoItem({ todo, handleChangeTodoStatus, handleDeleteTodo }) {
+  const { id, description, completed } = todo;
 
   return (
     <article className="todo-item">
-      <span className="checkbox" />
-      <p className="description">{description}</p>
-      <button className="btn-delete" />
+      <span
+        className={`checkbox ${completed ? "checked" : ""}`}
+        onClick={() => handleChangeTodoStatus(id)}
+      />
+      <p className={`description ${completed ? "cross-text" : ""}`}>
+        {description}
+      </p>
+      <button className="btn-delete" onClick={() => handleDeleteTodo(id)} />
     </article>
   );
 }
