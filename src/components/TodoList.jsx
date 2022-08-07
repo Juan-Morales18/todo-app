@@ -2,7 +2,12 @@ import { TodoItem } from "./TodoItem";
 import { Filter } from "./Filter";
 import "../styles/TodoList.scss";
 
-function TodoList({ todos, handleChangeTodoStatus, handleDeleteTodo }) {
+function TodoList({
+  todos,
+  handleChangeTodoStatus,
+  handleDeleteTodo,
+  handleClearCompleted,
+}) {
   const getLeftTodos = todos.filter((todo) => todo.completed === false).length;
 
   return (
@@ -22,7 +27,11 @@ function TodoList({ todos, handleChangeTodoStatus, handleDeleteTodo }) {
         <div>
           <Filter />
         </div>
-        <button type="button" className="todo-list-clear">
+        <button
+          type="button"
+          className="todo-list-clear"
+          onClick={handleClearCompleted}
+        >
           Clear completed
         </button>
       </div>

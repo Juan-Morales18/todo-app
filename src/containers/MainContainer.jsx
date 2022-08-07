@@ -54,6 +54,11 @@ function MainContainer() {
     setTodos(updatedTodos);
   };
 
+  const handleClearCompleted = () => {
+    const updatedTodos = todos.filter((todo) => todo.completed !== true);
+    setTodos(updatedTodos);
+  };
+
   return (
     <main className="main-container">
       <Header theme={theme} toggleTheme={toggleTheme} />
@@ -61,6 +66,7 @@ function MainContainer() {
         todos={todos}
         handleChangeTodoStatus={handleChangeTodoStatus}
         handleDeleteTodo={handleDeleteTodo}
+        handleClearCompleted={handleClearCompleted}
       />
     </main>
   );
