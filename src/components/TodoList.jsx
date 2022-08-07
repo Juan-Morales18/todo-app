@@ -3,11 +3,14 @@ import { Filter } from "./Filter";
 import "../styles/TodoList.scss";
 
 function TodoList({ todos, handleChangeTodoStatus, handleDeleteTodo }) {
+  const getLeftTodos = todos.filter((todo) => todo.completed === false).length;
+
   return (
     <section className="todo-list">
       <div className="todo-list-wrapper">
         {todos.map((todo) => (
           <TodoItem
+            key={todo.id}
             todo={todo}
             handleChangeTodoStatus={handleChangeTodoStatus}
             handleDeleteTodo={handleDeleteTodo}
@@ -15,7 +18,7 @@ function TodoList({ todos, handleChangeTodoStatus, handleDeleteTodo }) {
         ))}
       </div>
       <div className="todo-list-footer">
-        <span>items left</span>
+        <span>{getLeftTodos} items left</span>
         <div>
           <Filter />
         </div>
