@@ -8,27 +8,27 @@ const initialTodos = [
   {
     id: 1,
     description: "This is the todo 1",
-    checked: false,
+    completed: false,
   },
   {
     id: 2,
     description: "This is the todo 2",
-    checked: false,
+    completed: false,
   },
   {
     id: 3,
     description: "This is the todo 3",
-    checked: false,
+    completed: false,
   },
   {
     id: 4,
     description: "This is the todo 4",
-    checked: false,
+    completed: false,
   },
   {
     id: 5,
     description: "This is the todo 5",
-    checked: false,
+    completed: false,
   },
 ];
 
