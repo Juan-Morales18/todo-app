@@ -1,0 +1,9 @@
+@use "vars" as *;
+
+.todo-list {
+  background-color: $very-dark-desaturated-blue;
+  color: white;
+  padding: 2rem 1rem;
+  min-height: 35vh;
+  border-radius: $border-radius;
+}

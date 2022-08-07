@@ -1,0 +1,67 @@
+@use "vars" as *;
+
+.todo-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  padding: 1rem;
+
+  .checkbox {
+    background: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: solid 1px;
+    border-color: $check-border;
+
+    &:hover {
+      cursor: pointer;
+      border-color: $check-background-hover;
+    }
+  }
+
+  .description {
+    color: $dark-grayish-blue;
+    text-align: left;
+    margin: 0 0 0 10px;
+    overflow: hidden;
+    max-width: calc(100% - 65px);
+    text-overflow: ellipsis;
+    font-weight: 400;
+    overflow-wrap: break-word;
+
+    &.cross-text {
+      color: $light-grayish-blue;
+      text-decoration: line-through;
+    }
+  }
+
+  .btn-delete {
+    transition: opacity 0.5s ease-in-out;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    right: 20px;
+    width: 16px;
+    height: 16px;
+    border: none;
+    cursor: pointer;
+    background-image: url(../assets/icons/icon-cross.svg);
+    background-color: transparent;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    .btn-delete {
+      opacity: 1;
+    }
+  }
+}
