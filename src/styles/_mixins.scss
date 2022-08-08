@@ -12,14 +12,20 @@ $mobile-width: 580px;
   }
 }
 
-@mixin bgImage {
-  background-image: url("../assets/images/bg-desktop-dark.jpg");
-  background-repeat: no-repeat;
-  background-size: 100% 35vh;
+$themes: light dark;
 
-  @include mobile {
-    background-image: url("../assets/images/bg-mobile-dark.jpg");
-    background-repeat: no-repeat;
-    background-size: 100% 35vh;
+@mixin bgImage {
+  @each $theme in $themes {
+    .#{$theme} & {
+      background: url("../assets/images/bg-desktop-" + $theme + ".jpg");
+      background-repeat: no-repeat;
+      background-size: 100% 35vh;
+
+      @include mobile {
+        background: url("../assets/images/bg-mobile-" + $theme + ".jpg");
+        background-repeat: no-repeat;
+        background-size: 100% 35vh;
+      }
+    }
   }
 }
