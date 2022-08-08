@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Header } from "../components/Header";
-import { TodoList } from "../components/TodoList";
 import { TodoInput } from "../components/TodoInput";
+import { TodoList } from "../components/TodoList";
 import { Filter } from "../components/Filter";
+import { DragAndDropInfo } from "../components/DragDropInfo";
 
 import "../styles/MainContainer.scss";
 
@@ -19,6 +20,7 @@ function MainContainer() {
       <div className="mobile-filter">
         <Filter activeFilter={activeFilter} changeFilter={changeFilter} />
       </div>
+      <DragAndDropInfo />
     </div>
   );
 }

@@ -1,0 +1,8 @@
+@use "themify" as *;
+
+.dnd-info {
+  @include themify("color", "color-text-light");
+  font-size: 14px;
+  margin-top: 3rem;
+  text-align: center;
+}
