@@ -97,7 +97,7 @@ function TodoList({
 
       <div className="todo-list-footer">
         <span>{getLeftTodos} items left</span>
-        <div>
+        <div className="todo-list-filter">
           <Filter activeFilter={activeFilter} changeFilter={changeFilter} />
         </div>
         <button

@@ -1,5 +1,6 @@
 @use "reset" as *;
 @use "vars" as *;
+@use "mixins" as *;
 
 .main-container {
   max-width: 650px;
@@ -13,5 +14,9 @@
     padding: 1rem 0;
     background-color: $very-dark-desaturated-blue;
     border-radius: $border-radius;
+
+    @include tablet {
+      display: none;
+    }
   }
 }
