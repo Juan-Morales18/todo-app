@@ -1,3 +1,4 @@
+import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import { TodoItem } from "./TodoItem";
 import { Filter } from "./Filter";
 
@@ -64,7 +65,21 @@ function TodoList({
 
   return (
     <section className="todo-list">
-      <div className="todo-list-wrapper">{filteredTodos()}</div>
+      <DragDropContext>
+        <Droppable droppableId="todos">
+          {(provided) => (
+            <div
+              className="todo-list-wrapper"
+              {...provided.droppableProps}
+              ref={provided.innerRef}
+            >
+              {filteredTodos()}
+              {provided.placeholder}
+            </div>
+          )}
+        </Droppable>
+      </DragDropContext>
+
       <div className="todo-list-footer">
         <span>{getLeftTodos} items left</span>
         <div>
