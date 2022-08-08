@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import "../styles/TodoInput.scss";
 
-function TodoInput() {
+function TodoInput({ handleAddTodo }) {
   const inputEl = useRef();
 
   const handleSubmit = (e) => {
@@ -10,7 +10,7 @@ function TodoInput() {
     const typedValue = inputEl.current.value.trim();
     if (typedValue === "") return;
 
-    console.log(typedValue);
+    handleAddTodo(typedValue);
     inputEl.current.value = "";
   };
 

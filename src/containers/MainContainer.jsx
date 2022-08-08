@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { v4 as uuid } from "uuid";
 import { Header } from "../components/Header";
 import { TodoList } from "../components/TodoList";
 import { TodoInput } from "../components/TodoInput";
@@ -42,6 +43,17 @@ function MainContainer() {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   };
 
+  const handleAddTodo = (description) => {
+    const newTodo = {
+      id: uuid(),
+      description,
+      completed: false,
+    };
+
+    const updatedTodos = todos.concat(newTodo);
+    setTodos(updatedTodos);
+  };
+
   const handleDeleteTodo = (todoId) => {
     const newTodos = todos.filter((todo) => todo.id !== todoId);
     setTodos(newTodos);
@@ -66,7 +78,7 @@ function MainContainer() {
   return (
     <main className="main-container">
       <Header theme={theme} toggleTheme={toggleTheme} />
-      <TodoInput />
+      <TodoInput handleAddTodo={handleAddTodo} />
       <TodoList
         todos={todos}
         activeFilter={activeFilter}
