@@ -3,6 +3,7 @@ import { v4 as uuid } from "uuid";
 import { Header } from "../components/Header";
 import { TodoList } from "../components/TodoList";
 import { TodoInput } from "../components/TodoInput";
+import { Filter } from "../components/Filter";
 
 import "../styles/MainContainer.scss";
 
@@ -90,6 +91,9 @@ function MainContainer() {
         handleClearCompleted={handleClearCompleted}
         changeFilter={changeFilter}
       />
+      <div className="mobile-filter">
+        <Filter activeFilter={activeFilter} changeFilter={changeFilter} />
+      </div>
     </main>
   );
 }

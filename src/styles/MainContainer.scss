@@ -1,7 +1,17 @@
 @use "reset" as *;
+@use "vars" as *;
 
 .main-container {
   max-width: 650px;
   padding: 4rem 1rem 1rem 1rem;
   margin: auto;
+
+  .mobile-filter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+    background-color: $very-dark-desaturated-blue;
+    border-radius: $border-radius;
+  }
 }
