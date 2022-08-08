@@ -1,6 +1,11 @@
+import { useContext } from "react";
+import { ThemeContext } from "../context/ThemeContext";
+
 import "../styles/Header.scss";
 
-function Header({ theme, toggleTheme }) {
+function Header() {
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
   const btnThemeIcon = theme === "dark" ? "btn-dark" : "btn-light";
 
   return (

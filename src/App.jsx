@@ -1,13 +1,15 @@
 import { TodoProvider } from "./context/TodoContext";
-import { MainContainer } from "./containers/MainContainer";
+import { ThemeProvider } from "./context/ThemeContext";
+import { AppContainer } from "./containers/AppContainer";
+
 import "./styles/App.scss";
 
 function App() {
   return (
     <TodoProvider>
-      <div className="app-container">
-        <MainContainer />
-      </div>
+      <ThemeProvider>
+        <AppContainer />
+      </ThemeProvider>
     </TodoProvider>
   );
 }
