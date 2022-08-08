@@ -1,12 +1,15 @@
 import { TodoItem } from "./TodoItem";
 import { Filter } from "./Filter";
 import "../styles/TodoList.scss";
+import { useState } from "react";
 
 function TodoList({
   todos,
+  activeFilter,
   handleChangeTodoStatus,
   handleDeleteTodo,
   handleClearCompleted,
+  changeFilter,
 }) {
   const getLeftTodos = todos.filter((todo) => todo.completed === false).length;
 
@@ -25,7 +28,7 @@ function TodoList({
       <div className="todo-list-footer">
         <span>{getLeftTodos} items left</span>
         <div>
-          <Filter />
+          <Filter activeFilter={activeFilter} changeFilter={changeFilter} />
         </div>
         <button
           type="button"

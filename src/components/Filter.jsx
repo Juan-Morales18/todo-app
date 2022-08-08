@@ -1,15 +1,27 @@
 import "../styles/Filter.scss";
 
-function Filter() {
+function Filter({ activeFilter, changeFilter }) {
   return (
     <div className="filter">
-      <button className={`btn-filter`} type="button">
+      <button
+        onClick={() => changeFilter("all")}
+        className={`btn-filter ${activeFilter === "all" ? "active" : ""}`}
+        type="button"
+      >
         All
       </button>
-      <button className={`btn-filter`} type="button">
+      <button
+        onClick={() => changeFilter("active")}
+        className={`btn-filter ${activeFilter === "active" ? "active" : ""}`}
+        type="button"
+      >
         Active
       </button>
-      <button className={`btn-filter`} type="button">
+      <button
+        onClick={() => changeFilter("completed")}
+        className={`btn-filter ${activeFilter === "completed" ? "active" : ""}`}
+        type="button"
+      >
         Completed
       </button>
     </div>

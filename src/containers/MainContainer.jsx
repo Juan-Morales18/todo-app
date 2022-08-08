@@ -35,6 +35,7 @@ const initialTodos = [
 function MainContainer() {
   const [theme, setTheme] = useState("light");
   const [todos, setTodos] = useState(initialTodos);
+  const [activeFilter, setActiveFilter] = useState("all");
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
@@ -54,6 +55,8 @@ function MainContainer() {
     setTodos(updatedTodos);
   };
 
+  const changeFilter = (newFilter) => setActiveFilter(newFilter);
+
   const handleClearCompleted = () => {
     const updatedTodos = todos.filter((todo) => todo.completed !== true);
     setTodos(updatedTodos);
@@ -64,9 +67,11 @@ function MainContainer() {
       <Header theme={theme} toggleTheme={toggleTheme} />
       <TodoList
         todos={todos}
+        activeFilter={activeFilter}
         handleChangeTodoStatus={handleChangeTodoStatus}
         handleDeleteTodo={handleDeleteTodo}
         handleClearCompleted={handleClearCompleted}
+        changeFilter={changeFilter}
       />
     </main>
   );
