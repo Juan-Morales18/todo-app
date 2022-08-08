@@ -36,12 +36,29 @@ function TodoList({
     return "";
   });
 
+  const renderCompletedTodos = todos.map((todo) => {
+    if (todo.completed) {
+      return (
+        <TodoItem
+          key={todo.id}
+          todo={todo}
+          handleChangeTodoStatus={handleChangeTodoStatus}
+          handleDeleteTodo={handleDeleteTodo}
+        />
+      );
+    }
+    return "";
+  });
+
   const filteredTodos = () => {
     if (activeFilter === "all") {
       return renderAllTodos;
     }
     if (activeFilter === "active") {
       return renderActiveTodos;
+    }
+    if (activeFilter === "completed") {
+      return renderCompletedTodos;
     }
   };
 
