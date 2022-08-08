@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Header } from "../components/Header";
 import { TodoList } from "../components/TodoList";
+import { TodoInput } from "../components/TodoInput";
 
 import "../styles/MainContainer.scss";
 
@@ -65,6 +66,7 @@ function MainContainer() {
   return (
     <main className="main-container">
       <Header theme={theme} toggleTheme={toggleTheme} />
+      <TodoInput />
       <TodoList
         todos={todos}
         activeFilter={activeFilter}

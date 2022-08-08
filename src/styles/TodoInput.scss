@@ -1,0 +1,40 @@
+@use "vars" as *;
+
+.input-wrapper {
+  background-color: $very-dark-desaturated-blue;
+  display: flex;
+  align-items: center;
+  padding: 1rem 1rem;
+  border-radius: $border-radius;
+  margin-bottom: 1.5rem;
+
+  .checkbox {
+    background: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: solid 1px;
+    border-color: $check-border;
+
+    &:hover {
+      cursor: pointer;
+      border-color: $check-background-hover;
+    }
+  }
+
+  .input {
+    background-color: $very-dark-desaturated-blue;
+    color: $light-grayish-blue;
+    border: none;
+    outline: none;
+    margin-left: 10px;
+    width: 80%;
+    font-family: inherit;
+    font-size: inherit;
+    caret-color: $bright-blue;
+
+    &::placeholder {
+      color: $very-dark-grayish-blue;
+    }
+  }
+}
