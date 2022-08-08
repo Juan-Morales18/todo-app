@@ -11,3 +11,15 @@ $mobile-width: 580px;
     @content;
   }
 }
+
+@mixin bgImage {
+  background-image: url("../assets/images/bg-desktop-dark.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 35vh;
+
+  @include mobile {
+    background-image: url("../assets/images/bg-mobile-dark.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 35vh;
+  }
+}

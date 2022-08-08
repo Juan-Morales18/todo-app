@@ -1,8 +1,9 @@
 @use "vars" as *;
+@use "mixins" as *;
 
 .app-container {
+  @include bgImage;
   background-color: $very-dark-blue;
   min-height: 100vh;
   width: 100%;
-  top: 0;
 }
