@@ -8,27 +8,27 @@ import "../styles/MainContainer.scss";
 
 const initialTodos = [
   {
-    id: 1,
+    id: "1",
     description: "This is the todo 1",
     completed: false,
   },
   {
-    id: 2,
+    id: "2",
     description: "This is the todo 2",
     completed: false,
   },
   {
-    id: 3,
+    id: "3",
     description: "This is the todo 3",
     completed: false,
   },
   {
-    id: 4,
+    id: "4",
     description: "This is the todo 4",
     completed: false,
   },
   {
-    id: 5,
+    id: "5",
     description: "This is the todo 5",
     completed: false,
   },
