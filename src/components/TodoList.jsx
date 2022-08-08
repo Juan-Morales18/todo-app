@@ -14,20 +14,22 @@ function TodoList({
 }) {
   const getLeftTodos = todos.filter((todo) => todo.completed === false).length;
 
-  const renderAllTodos = todos.map((todo) => (
+  const renderAllTodos = todos.map((todo, index) => (
     <TodoItem
       key={todo.id}
+      index={index}
       todo={todo}
       handleChangeTodoStatus={handleChangeTodoStatus}
       handleDeleteTodo={handleDeleteTodo}
     />
   ));
 
-  const renderActiveTodos = todos.map((todo) => {
+  const renderActiveTodos = todos.map((todo, index) => {
     if (!todo.completed) {
       return (
         <TodoItem
           key={todo.id}
+          index={index}
           todo={todo}
           handleChangeTodoStatus={handleChangeTodoStatus}
           handleDeleteTodo={handleDeleteTodo}
@@ -37,11 +39,12 @@ function TodoList({
     return "";
   });
 
-  const renderCompletedTodos = todos.map((todo) => {
+  const renderCompletedTodos = todos.map((todo, index) => {
     if (todo.completed) {
       return (
         <TodoItem
           key={todo.id}
+          index={index}
           todo={todo}
           handleChangeTodoStatus={handleChangeTodoStatus}
           handleDeleteTodo={handleDeleteTodo}
