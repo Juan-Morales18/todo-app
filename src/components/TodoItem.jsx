@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import { Draggable } from "react-beautiful-dnd";
+import { TodoContext } from "../context/TodoContext";
 import "../styles/TodoItem.scss";
 
-function TodoItem({ todo, index, handleChangeTodoStatus, handleDeleteTodo }) {
+function TodoItem({ todo, index }) {
+  const { handleChangeTodoStatus, handleDeleteTodo } = useContext(TodoContext);
   const { id, description, completed } = todo;
 
   return (

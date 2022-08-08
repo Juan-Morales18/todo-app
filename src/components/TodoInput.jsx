@@ -1,7 +1,9 @@
-import { useRef } from "react";
+import { useRef, useContext } from "react";
+import { TodoContext } from "../context/TodoContext";
 import "../styles/TodoInput.scss";
 
-function TodoInput({ handleAddTodo }) {
+function TodoInput() {
+  const { handleAddTodo } = useContext(TodoContext);
   const inputEl = useRef();
 
   const handleSubmit = (e) => {

@@ -1,56 +1,31 @@
+import { useContext } from "react";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
+import { TodoContext } from "../context/TodoContext";
 import { TodoItem } from "./TodoItem";
 import { Filter } from "./Filter";
 
 import "../styles/TodoList.scss";
 
-function TodoList({
-  todos,
-  updateListOrder,
-  activeFilter,
-  handleChangeTodoStatus,
-  handleDeleteTodo,
-  handleClearCompleted,
-  changeFilter,
-}) {
+function TodoList({ activeFilter, changeFilter }) {
+  const { todos, handleClearCompleted, updateListOrder } =
+    useContext(TodoContext);
+
   const getLeftTodos = todos.filter((todo) => todo.completed === false).length;
 
   const renderAllTodos = todos.map((todo, index) => (
-    <TodoItem
-      key={todo.id}
-      index={index}
-      todo={todo}
-      handleChangeTodoStatus={handleChangeTodoStatus}
-      handleDeleteTodo={handleDeleteTodo}
-    />
+    <TodoItem key={todo.id} index={index} todo={todo} />
   ));
 
   const renderActiveTodos = todos.map((todo, index) => {
     if (!todo.completed) {
-      return (
-        <TodoItem
-          key={todo.id}
-          index={index}
-          todo={todo}
-          handleChangeTodoStatus={handleChangeTodoStatus}
-          handleDeleteTodo={handleDeleteTodo}
-        />
-      );
+      return <TodoItem key={todo.id} index={index} todo={todo} />;
     }
     return "";
   });
 
   const renderCompletedTodos = todos.map((todo, index) => {
     if (todo.completed) {
-      return (
-        <TodoItem
-          key={todo.id}
-          index={index}
-          todo={todo}
-          handleChangeTodoStatus={handleChangeTodoStatus}
-          handleDeleteTodo={handleDeleteTodo}
-        />
-      );
+      return <TodoItem key={todo.id} index={index} todo={todo} />;
     }
     return "";
   });
