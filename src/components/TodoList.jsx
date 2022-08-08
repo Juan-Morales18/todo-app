@@ -6,6 +6,7 @@ import "../styles/TodoList.scss";
 
 function TodoList({
   todos,
+  updateListOrder,
   activeFilter,
   handleChangeTodoStatus,
   handleDeleteTodo,
@@ -66,9 +67,20 @@ function TodoList({
     }
   };
 
+  const handleOnDragEnd = (result) => {
+    if (!result.destination) {
+      return;
+    }
+    const newList = Array.from(todos);
+    const [targetItem] = newList.splice(result.source.index, 1);
+    newList.splice(result.destination.index, 0, targetItem);
+
+    updateListOrder(newList);
+  };
+
   return (
     <section className="todo-list">
-      <DragDropContext>
+      <DragDropContext onDragEnd={handleOnDragEnd}>
         <Droppable droppableId="todos">
           {(provided) => (
             <div

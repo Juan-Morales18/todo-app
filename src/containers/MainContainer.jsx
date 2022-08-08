@@ -54,6 +54,8 @@ function MainContainer() {
     setTodos(updatedTodos);
   };
 
+  const updateListOrder = (newListOrder) => setTodos(newListOrder);
+
   const handleDeleteTodo = (todoId) => {
     const newTodos = todos.filter((todo) => todo.id !== todoId);
     setTodos(newTodos);
@@ -81,6 +83,7 @@ function MainContainer() {
       <TodoInput handleAddTodo={handleAddTodo} />
       <TodoList
         todos={todos}
+        updateListOrder={updateListOrder}
         activeFilter={activeFilter}
         handleChangeTodoStatus={handleChangeTodoStatus}
         handleDeleteTodo={handleDeleteTodo}
