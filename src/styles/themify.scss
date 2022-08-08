@@ -1,0 +1,9 @@
+@use "themes" as *;
+
+@mixin themify($css-property, $theme-key, $themes: $themes) {
+  @each $theme-name, $colors in $themes {
+    .#{$theme-name} & {
+      #{$css-property}: map-get(map-get($themes, $theme-name), $theme-key);
+    }
+  }
+}
