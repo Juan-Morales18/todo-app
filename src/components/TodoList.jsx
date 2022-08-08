@@ -1,7 +1,7 @@
 import { TodoItem } from "./TodoItem";
 import { Filter } from "./Filter";
+
 import "../styles/TodoList.scss";
-import { useState } from "react";
 
 function TodoList({
   todos,
@@ -13,18 +13,24 @@ function TodoList({
 }) {
   const getLeftTodos = todos.filter((todo) => todo.completed === false).length;
 
+  const renderAllTodos = todos.map((todo) => (
+    <TodoItem
+      key={todo.id}
+      todo={todo}
+      handleChangeTodoStatus={handleChangeTodoStatus}
+      handleDeleteTodo={handleDeleteTodo}
+    />
+  ));
+
+  const filteredTodos = () => {
+    if (activeFilter === "all") {
+      return renderAllTodos;
+    }
+  };
+
   return (
     <section className="todo-list">
-      <div className="todo-list-wrapper">
-        {todos.map((todo) => (
-          <TodoItem
-            key={todo.id}
-            todo={todo}
-            handleChangeTodoStatus={handleChangeTodoStatus}
-            handleDeleteTodo={handleDeleteTodo}
-          />
-        ))}
-      </div>
+      <div className="todo-list-wrapper">{filteredTodos()}</div>
       <div className="todo-list-footer">
         <span>{getLeftTodos} items left</span>
         <div>
