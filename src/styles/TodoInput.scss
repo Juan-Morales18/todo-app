@@ -1,7 +1,9 @@
 @use "vars" as *;
+@use "themify" as *;
 
 .input-wrapper {
-  background-color: $very-dark-desaturated-blue;
+  @include themify("background-color", "color-list-bg");
+  @include themify("box-shadow", "shadow");
   display: flex;
   align-items: center;
   padding: 1rem 1rem;
@@ -23,8 +25,8 @@
   }
 
   .input {
-    background-color: $very-dark-desaturated-blue;
-    color: $light-grayish-blue;
+    @include themify("background-color", "color-list-bg");
+    @include themify("color", "color-list-text");
     border: none;
     outline: none;
     margin-left: 10px;
@@ -34,7 +36,7 @@
     caret-color: $bright-blue;
 
     &::placeholder {
-      color: $very-dark-grayish-blue;
+      color: themify("color", "color-input-placeholder");
     }
   }
 }

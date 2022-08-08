@@ -1,8 +1,10 @@
 @use "vars" as *;
 @use "mixins" as *;
+@use "themify" as *;
 
 .todo-list {
-  background-color: $very-dark-desaturated-blue;
+  @include themify("background-color", "color-list-bg");
+  @include themify("box-shadow", "shadow");
   color: white;
   margin: 1rem 0;
   border-radius: $border-radius;
@@ -12,7 +14,8 @@
   }
 
   .todo-list-footer {
-    color: $dark-grayish-blue;
+    @include themify("color", "color-btn");
+    @include themify("box-shadow", "shadow");
     padding: 1rem;
     font-size: 16px;
     display: flex;
@@ -26,14 +29,14 @@
   }
 
   .todo-list-clear {
-    color: $dark-grayish-blue;
+    @include themify("color", "color-btn");
     font-size: 16px;
     font-family: inherit;
     background: none;
     border: none;
     cursor: pointer;
     &:hover {
-      color: $light-grayish-blue-hover;
+      @include themify("color", "color-btn-hover");
     }
   }
 }

@@ -1,8 +1,9 @@
 @use "vars" as *;
+@use "themify" as *;
 
 .filter {
   .btn-filter {
-    color: $dark-grayish-blue;
+    @include themify("color", "color-btn");
     margin: 0 8px;
     background: none;
     border: none;
@@ -11,7 +12,7 @@
     font-size: 16px;
 
     &:hover {
-      color: $light-grayish-blue-hover;
+      @include themify("color", "color-btn-hover");
       cursor: pointer;
     }
 

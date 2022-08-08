@@ -1,6 +1,7 @@
 @use "reset" as *;
 @use "vars" as *;
 @use "mixins" as *;
+@use "themify" as *;
 
 .main-container {
   max-width: 650px;
@@ -8,11 +9,12 @@
   margin: auto;
 
   .mobile-filter {
+    @include themify("background-color", "color-list-bg");
+    @include themify("box-shadow", "shadow");
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 1rem 0;
-    background-color: $very-dark-desaturated-blue;
     border-radius: $border-radius;
 
     @include tablet {

@@ -1,4 +1,5 @@
 @use "vars" as *;
+@use "themify" as *;
 
 .todo-item {
   position: relative;
@@ -6,7 +7,7 @@
   align-items: center;
   background-color: transparent;
   padding: 1rem;
-  border-bottom: 1px solid hsl(237, 14%, 26%);
+  @include themify("border-bottom", "border");
 
   .checkbox {
     background: none;
@@ -30,7 +31,7 @@
   }
 
   .description {
-    color: $dark-grayish-blue;
+    @include themify("color", "color-list-text");
     text-align: left;
     margin: 0 0 0 10px;
     overflow: hidden;
@@ -40,7 +41,7 @@
     overflow-wrap: break-word;
 
     &.cross-text {
-      color: $light-grayish-blue;
+      @include themify("color", "color-list-text-completed");
       text-decoration: line-through;
     }
   }

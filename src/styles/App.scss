@@ -1,9 +1,10 @@
 @use "vars" as *;
 @use "mixins" as *;
+@use "themify" as *;
 
 .app-container {
   @include bgImage;
-  background-color: $very-dark-blue;
+  @include themify("background-color", "color-bg");
   min-height: 100vh;
   width: 100%;
 }
