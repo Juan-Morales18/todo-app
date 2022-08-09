@@ -6,16 +6,15 @@ import "../styles/Header.scss";
 function Header() {
   const { theme, toggleTheme } = useContext(ThemeContext);
 
-  const btnThemeIcon = theme === "dark" ? "btn-dark" : "btn-light";
+  const themeIcon = theme === "dark" ? "btn-dark" : "btn-light";
 
   return (
     <nav className="header">
       <h1 className="title">TODO</h1>
-      <button
-        type="button"
-        className={`btn-switch-theme ${btnThemeIcon}`}
+      <span
+        className={`btn-switch-theme ${themeIcon}`}
         onClick={toggleTheme}
-      ></button>
+      ></span>
     </nav>
   );
 }
