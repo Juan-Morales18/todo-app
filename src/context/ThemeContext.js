@@ -1,14 +1,20 @@
-import { createContext, useState } from "react";
+import { createContext } from "react";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 const ThemeContext = createContext();
 
 const intialTheme = "light";
+const localStorageItem = "THEME_ITEM";
 
 function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState(intialTheme);
+  const { data: theme, saveData: saveTheme } = useLocalStorage(
+    localStorageItem,
+    intialTheme
+  );
 
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+    const newTheme = theme === "light" ? "dark" : "light";
+    saveTheme(newTheme);
   };
 
   const data = {
