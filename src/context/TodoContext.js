@@ -1,38 +1,17 @@
 import { createContext, useState } from "react";
 import { v4 as uuid } from "uuid";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 const TodoContext = createContext();
 
-const initialTodos = [
-  {
-    id: "1",
-    description: "This is the todo 1",
-    completed: false,
-  },
-  {
-    id: "2",
-    description: "This is the todo 2",
-    completed: false,
-  },
-  {
-    id: "3",
-    description: "This is the todo 3",
-    completed: false,
-  },
-  {
-    id: "4",
-    description: "This is the todo 4",
-    completed: false,
-  },
-  {
-    id: "5",
-    description: "This is the todo 5",
-    completed: false,
-  },
-];
+const initialTodos = [];
+const localStorageItem = "TODOS_DB";
 
 function TodoProvider({ children }) {
-  const [todos, setTodos] = useState(initialTodos);
+  const { data: todos, saveData: saveTodos } = useLocalStorage(
+    localStorageItem,
+    initialTodos
+  );
 
   const handleAddTodo = (description) => {
     const newTodo = {
@@ -42,14 +21,14 @@ function TodoProvider({ children }) {
     };
 
     const updatedTodos = todos.concat(newTodo);
-    setTodos(updatedTodos);
+    saveTodos(updatedTodos);
   };
 
   const updateListOrder = (newListOrder) => setTodos(newListOrder);
 
   const handleDeleteTodo = (todoId) => {
     const newTodos = todos.filter((todo) => todo.id !== todoId);
-    setTodos(newTodos);
+    saveTodos(newTodos);
   };
 
   const handleChangeTodoStatus = (todoId) => {
@@ -58,12 +37,12 @@ function TodoProvider({ children }) {
         ? { ...todo, completed: !todo.completed }
         : todo;
     });
-    setTodos(updatedTodos);
+    saveTodos(updatedTodos);
   };
 
   const handleClearCompleted = () => {
     const updatedTodos = todos.filter((todo) => todo.completed !== true);
-    setTodos(updatedTodos);
+    saveTodos(updatedTodos);
   };
 
   const data = {
