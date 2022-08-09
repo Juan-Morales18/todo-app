@@ -24,7 +24,7 @@ function TodoProvider({ children }) {
     saveTodos(updatedTodos);
   };
 
-  const updateListOrder = (newListOrder) => setTodos(newListOrder);
+  const updateListOrder = (newListOrder) => saveTodos(newListOrder);
 
   const handleDeleteTodo = (todoId) => {
     const newTodos = todos.filter((todo) => todo.id !== todoId);
