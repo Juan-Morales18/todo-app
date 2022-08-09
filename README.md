@@ -17,3 +17,29 @@ Users should be able to:
   Bonus: Drag and drop to reorder items on the list
 
 [View the full challenge description](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW)
+
+## About the app
+
+- The functionalities described on challenge description were implemented
+- The todo list is saved on local storage
+- The selected theme is also saved on local storage
+
+## Tools
+
+- ReactJS
+- Webpack
+- React Beautiful DnD
+
+## How to run
+
+1. Clone repo
+2. Run `npm install`
+3. Run `npm run dev`
+
+## Generate deploy files
+
+- Run `npm run build`
+
+## Demo
+
+[Demo](https://todo-app-fmentor.netlify.app/)
